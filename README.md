@@ -200,6 +200,9 @@ Main KPIs:
 -	On-Time Rate
 -	Freight Average
 
+### All background images and color scheme can be downloaded here:
+`Images/Power_BI_Design`
+
 ## Key Insights Examples:
 -	São Paulo generated the highest revenue.
 -	Health & Beauty was among the top categories.
