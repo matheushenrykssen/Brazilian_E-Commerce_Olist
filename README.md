@@ -82,11 +82,13 @@ Fact Table:
     - freight_value
     - Delivery_Status
     - Delayed_Order
+    
 Dimension Tables:
 -	Dim_Customer
     - customer_city
     - customer_id
     - customer_state
+    
 -	Dim_Product
     - product_id
     - product_category_name
@@ -94,10 +96,12 @@ Dimension Tables:
     - product_length_cm
     - product_height_cm
     - product_width_cm
+    
 -	Dim_Seller
     - seller_id
     - seller_city
     - seller_state
+    
 -	Dim_Calendar
     - Date
     - Year
@@ -112,60 +116,83 @@ Dimension Tables:
     - YearMonth
     - YearMonth_desc
     
-![Esquema do Banco de Dados](images/schema.png)
+![Schema](Images/Power_BI/Star_Schema.JPG)
+
 
 ## Power Query Transformations
 Main transformations performed:
--	Data type corrections
--	Product name standardization
--	Date treatment
--	Column renaming
--	Creation of calculated columns
+- Data type corrections
+- Product name standardization
+- Date treatment
+- Column renaming
+- Creation of calculated columns
 
 ## Calendar Table
 Custom calendar table created to support Time Intelligence calculations.
 Features:
--	Year
--	Month
--	Month Name
--	Quarter
--	Year-Month
+- Date
+- Year
+- Month
+- Month Day
+- Quarter(Number)
+- Week of the Year
+- Week of the Month
+- Day
+- Name of the Day
+- Short_Month
+- YearMonth
+- YearMonth_desc
 
 ## DAX Measures
-Examples:
 Revenue Metrics
--	Revenue
--	Revenue %
--	Revenue YTD
--	Revenue Last Year
+-	Sales
+-	Sales AVG
+-	Sales Last YEar
+-	Sales Last Year Delta
+-	Sales Last Year Delta %
+-	Sales Percent by Category
+-	Sales Percent by State
+-	Sales Year to Date
+-	Sales Year to Date Last Year
+
 Order Metrics
 -	Order Quantity
--	Average Ticket
+-	Freight Value Average
+
 Logistics Metrics
 -	Deliveries
 -	Deliveries Late
 -	Deliveries Late %
+-	Deliveries On Time
 -	Deliveries On Time %
 
 ## Dashboards
-Sales Overview
-Insert screenshot.
+### Sales Overview:
+
+![Sales_Overview](Images/Dashboard/Sales_Overview.JPG)
+
 Main KPIs:
--	Revenue
+-	Sales
 -	Orders
 -	Average Ticket
--	Revenue by State
--	Revenue by Category
-State Detail (Drillthrough)
-Insert screenshot.
+-	Sales by State
+-	Sales by Category
+
+### State Detail (Drillthrough):
+
+![Sales_Overview](Images/Dashboard/Drillthrough.JPG)
+
 Main KPIs:
--	Revenue
+-	Sales
 -	Orders
 -	Top Categories
 -	Top Cities
 -	Revenue Comparison
-Deliveries Overview
-Insert screenshot.
+
+### Deliveries Overview
+
+![Sales_Overview](Images/Dashboard/Deliveries_Overview.JPG)
+
 Main KPIs:
 -	Deliveries
 -	On-Time Deliveries
@@ -173,8 +200,10 @@ Main KPIs:
 -	On-Time Rate
 -	Freight Average
 
-## Key Insights
-Examples:
+### All background images and color scheme can be downloaded here:
+`Images/Power_BI_Design`
+
+## Key Insights Examples:
 -	São Paulo generated the highest revenue.
 -	Health & Beauty was among the top categories.
 -	More than 90% of deliveries were completed on time.
@@ -182,20 +211,24 @@ Examples:
 -	Freight costs varied significantly among categories.
 
 ## Technologies Used
+-    Excel
 -	SQL Server
 -	Power BI
 -	DAX
 -	Power Query
 -	Git
 -	GitHub
-# EXCLUIR Repository Structure
-SQL/
-PowerBI/
-Images/
-README.md
-________________________________________
+-----------------------------------------------------------
 ## Author
-Matheus Henrykssen
-LinkedIn: 
-GitHub
 
+Matheus Henrykssen
+
+<p align="center">
+  <a href="https://www.linkedin.com/in/matheus-goncalves-45534a414/">
+    🔗 LinkedIn
+  </a>
+  &nbsp; | &nbsp;
+  <a href="https://github.com/matheushenrykssen">
+    💻 GitHub
+  </a>
+</p>
