@@ -218,6 +218,11 @@ Main KPIs:
 -	Power Query
 -	Git
 -	GitHub
+
+## Dashboard Link
+
+ [Dashboard_Power_BI](https://app.powerbi.com/view?r=eyJrIjoiMTkzMTNhOWMtNWQ5Zi00OWE4LWFmNDctYWRmYTI0YmYzNmM3IiwidCI6IjY1OWNlMmI4LTA3MTQtNDE5OC04YzM4LWRjOWI2MGFhYmI1NyJ9)
+
 -----------------------------------------------------------
 ## Author
 
