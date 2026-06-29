@@ -1,5 +1,5 @@
 # Brazilian E-Commerce Sales & Logistics Analysis
-
+![OlistGIF](Images/Dashboard/Brazilian_Olist_Dashboard.gif)
 ## Project Overview
 
 This project analyzes sales performance and logistics operations using the Brazilian E-Commerce Public Dataset by Olist.
