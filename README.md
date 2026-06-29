@@ -1,14 +1,17 @@
 # Brazilian E-Commerce Sales & Logistics Analysis
 
 ## Project Overview
-The objective of this project is to present a descriptive analysis of the public database, Brazilian E-Commerce, focusing on sales and logistics. 
-The project highlights the states with the highest sales, the most popular product types by category, and also provides an evaluation of deliveries.
-To this end, data processing and validation steps were carried out using SQL, including the creation of primary keys (PKs) and foreign keys (FKs), 
-as well as integrity checks. Subsequently, the data was modeled and analyzed in Power BI through the creation of an interactive dashboard featuring key performance indicators (KPIs), 
-time-series analysis, and business segmentations.
-The project aims to transform raw data into meaningful insights to support decision-making and to demonstrate proficiency in data modeling, EXCEL, SQL, Power BI, and data analysis.
+
+This project analyzes sales performance and logistics operations using the Brazilian E-Commerce Public Dataset by Olist.
+
+The objective was to transform raw transactional data into an analytical model capable of answering key business questions related to revenue, product performance and delivery efficiency.
+
+To achieve this, the project included data validation and modeling in SQL, data transformation with Power Query, creation of business metrics using DAX, and development of an interactive Power BI dashboard.
+
+The final solution enables users to monitor sales trends, identify top-performing regions and product categories, evaluate logistics performance and support data-driven decision making.
 
 ## Business Problem
+
 Questions answered by the analysis:
 -	Which states generate the highest revenue?
 -	Which product categories contribute most to sales?
@@ -19,19 +22,41 @@ Questions answered by the analysis:
 - What is the average shipping cost to the states?
 -	Which states have the highest delivery delay rates?
 
+## Project Workflow
+
+```mermaid
+flowchart TD
+    A[Raw CSV Files] --> B[Excel Inspection]
+    B --> C[SQL Data Validation]
+    C --> D[PK & FK Creation]
+    D --> E[SQL Views]
+    E --> F[Star Schema]
+    F --> G[Power Query]
+    G --> H[DAX Measures]
+    H --> I[Power BI Dashboard]
+    I --> J[Business Insights]
+```
+
+
 ## Dataset
 ###	Brazilian E-Commerce Public Dataset by Olist
-According to the database's own summary:
 
-*This dataset was generously provided by Olist, the largest department store in Brazilian marketplaces. 
-Olist connects small businesses from all over Brazil to channels without hassle and with a single contract. 
-Those merchants are able to sell their products through the Olist Store and ship them directly to the customers using Olist logistics partners. 
-See more on our website: www.olist.com
-After a customer purchases the product from Olist Store a seller gets notified to fulfill that order. 
-Once the customer receives the product, or the estimated delivery date is due, the customer gets a satisfaction survey by email where he 
-can give a note for the purchase experience and write down some comments.*
+This project uses the Brazilian E-Commerce Public Dataset by Olist, which contains approximately 100,000 orders placed between 2016 and 2018.
 
-Available at: https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
+The dataset includes transactional information about:
+
+- Customers
+- Orders
+- Products
+- Sellers
+- Payments
+- Reviews
+- Geolocation
+- Deliveries
+
+
+
+**Available at:** https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
 
 (Files can also be downloaded from the dataset folder here.)
 
@@ -48,23 +73,27 @@ Available at: https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
     - olist_sellers_dataset.csv
 
 ## SQL Data Preparation
+
+SQL was used to validate data quality, model the relational database and prepare analytical structures for Power BI.
+
 ### Data Validation
-Performed validations such as:
--	Duplicate checks
--	Null value analysis
--	Date consistency validation
--	Revenue consistency validation
--	Referential integrity validation
-- Database Modeling
-- Creation and validation of:
-    -	Primary Keys (PK)
-    -	Foreign Keys (FK)
-- Relationships established between transactional tables.
-- SQL Views. Views created for performance and analytical consumption:
-    -	VW_Fact_Sales
-    -	VW_Dim_Customer
-    -	VW_Dim_Product
-    -	VW_Dim_Seller
+
+The following validation steps were performed:
+
+- Checked duplicate records
+- Identified missing values
+- Validated purchase and delivery dates
+- Verified revenue consistency
+- Validated referential integrity between tables
+
+### SQL Views
+
+To simplify data consumption in Power BI and improve maintainability, analytical SQL Views were created.
+
+- VW_Fact_Sales
+- VW_Dim_Customer
+- VW_Dim_Product
+- VW_Dim_Seller
 
 ## Dimensional Modeling
 Star Schema designed for analytical reporting.
@@ -119,13 +148,15 @@ Dimension Tables:
 ![Schema](Images/Power_BI/Star_Schema.JPG)
 
 
+
 ## Power Query Transformations
-Main transformations performed:
-- Data type corrections
-- Product name standardization
-- Date treatment
-- Column renaming
-- Creation of calculated columns
+The following transformations were applied before loading the model:
+
+- Corrected data types
+- Standardized product categories
+- Renamed columns
+- Treated date fields
+- Created calculated columns
 
 ## Calendar Table
 Custom calendar table created to support Time Intelligence calculations.
@@ -144,29 +175,35 @@ Features:
 - YearMonth_desc
 
 ## DAX Measures
-Revenue Metrics
--	Sales
--	Sales AVG
--	Sales Last YEar
--	Sales Last Year Delta
--	Sales Last Year Delta %
--	Sales Percent by Category
--	Sales Percent by State
--	Sales Year to Date
--	Sales Year to Date Last Year
 
-Order Metrics
--	Order Quantity
--	Freight Value Average
+Business KPIs were developed using DAX, including:
 
-Logistics Metrics
--	Deliveries
--	Deliveries Late
--	Deliveries Late %
--	Deliveries On Time
--	Deliveries On Time %
+### Revenue
+
+- Sales
+- Sales AVG
+- Sales YTD
+- Sales Last Year
+- Sales Delta (%)
+
+### Orders
+
+- Order Quantity
+- Average Freight
+
+### Logistics
+
+- Deliveries
+- On-Time Deliveries
+- Late Deliveries
+- Delivery Delay Rate
 
 ## Dashboards
+
+The dashboard was designed to provide an interactive overview of sales performance and logistics indicators.
+
+It contains three analytical pages:
+
 ### Sales Overview:
 
 ![Sales_Overview](Images/Dashboard/Sales_Overview.JPG)
@@ -203,12 +240,40 @@ Main KPIs:
 ### All background images and color scheme can be downloaded here:
 `Images/Power_BI_Design`
 
-## Key Insights Examples:
--	São Paulo generated the highest revenue.
--	Health & Beauty was among the top categories.
--	More than 90% of deliveries were completed on time.
--	Delivery delays were concentrated in a few states.
--	Freight costs varied significantly among categories.
+## Key Insights
+**Sales and logistics indicators can be analyzed together, allowing the identification of regions that combine high revenue with efficient delivery performance, supporting more informed business decisions.**
+
+### Sales Performance
+
+- **Revenue is highly concentrated in São Paulo**, making it the company's primary commercial market and highlighting a strong geographic dependency.
+
+- **Health & Beauty ranked among the highest-performing product categories**, making a significant contribution to overall sales.
+
+- **Sales showed noticeable monthly fluctuations**, revealing seasonal patterns and periods of stronger commercial performance.
+
+### Logistics Performance
+
+- **More than 90% of deliveries were completed on time**, indicating an overall efficient logistics operation.
+
+- **Delivery delays were concentrated in a limited number of states**, suggesting that logistical issues are localized rather than widespread.
+
+- **Average freight costs varied considerably across both states and product categories**, reflecting differences in shipping distance, product characteristics, and regional logistics conditions.
+
+
+## Skills Demonstrated
+
+- Data Cleaning
+- Data Validation
+- Relational Database Modeling
+- Star Schema Design
+- SQL Query Development
+- Data Transformation
+- DAX Calculations
+- KPI Development
+- Dashboard Design
+- Business Analysis
+- Data Storytelling
+
 
 ## Technologies Used
 -    Excel
@@ -218,6 +283,11 @@ Main KPIs:
 -	Power Query
 -	Git
 -	GitHub
+
+## Dashboard Link
+
+ [Dashboard_Power_BI](https://app.powerbi.com/view?r=eyJrIjoiMTkzMTNhOWMtNWQ5Zi00OWE4LWFmNDctYWRmYTI0YmYzNmM3IiwidCI6IjY1OWNlMmI4LTA3MTQtNDE5OC04YzM4LWRjOWI2MGFhYmI1NyJ9)
+
 -----------------------------------------------------------
 ## Author
 
